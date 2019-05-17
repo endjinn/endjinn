@@ -17,9 +17,28 @@ There are some key issues with existing implementations:
 - For Quorum no consensus on private SCs
 - For fabric - static config
 - For Quorum - immutable smart contract make evolution of logic heavyweight which leads to pushing logic out of smart contracts and reducing integrity
-- Dynamic networks - Fabric and Corda have concepts around this but 
+- Dynamic networks - Fabric and Corda have concepts around this but they are quite heavyweight. 
 
 endjinn intends to start with these constraints in mind.
+
+There are two main design issues with current implementations:
+
+- Complicated
+- Complected (See "[Simple Made Easy](https://www.infoq.com/presentations/Simple-Made-Easy)" - Rich Hickey
+
+endjinn will de-complect and make a DLT that is composable and simple. 
+
+## Layers
+
+- Foundation - P2P commms, sending transaction data, storing tx data, confidentiality, peer discovery, peer authentication
+- Resilience and Scalability - horizontal scalability, redundancy
+- Transaction Protocol - effectively 2-phase commit, a la corda [flows](https://docs.corda.net/key-concepts-flows.html)
+- Non-repudiation (Digital signatures)
+- Identity - Node identity, transaction signing identity, administrator identity, organisation identity
+- Immutability - either via a blockchain recording hashes or ...?
+- Integrity Verification (Notaries? Observers?) 
+
+
 
 
 
